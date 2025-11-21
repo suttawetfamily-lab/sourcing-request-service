@@ -1,0 +1,115 @@
+pipeline {
+     agent any
+     environment {
+            
+            DOCKER_REPOSITORY = 'ascendcorp/ptvn-sourcing-req-service'
+            REPOSITORY = 'ptvn-sourcing-req-service'
+            IMAGE_TAG = "${env.BRANCH_NAME}-${env.BUILD_NUMBER}"
+            REGISTRY_URL = '192.168.19.15:8082'
+            IMAGE_NAME = "${REGISTRY_URL}/${DOCKER_REPOSITORY}"
+          
+
+            }
+
+    stages {
+            stage('Poll scm') {
+               steps {
+                   deleteDir()
+                   checkout scm
+               }
+           }
+            stage('edit ENV'){
+                steps{
+                    script{
+                      
+                        switch(env.BRANCH_NAME) {
+                        case "max-demo":
+                            env.BRANCH_NAME = "dev"
+                            weburl = "192.168.19.49"  
+                            composefile ="./dockerScript/dev/docker-compose.yml"                      
+                            break
+                        case "deploy-dev":
+                            env.BRANCH_NAME = "dev"
+                            weburl = "192.168.19.49"
+                            composefile ="./dockerScript/dev/docker-compose.yml"                      
+                            break
+                        
+                        case "deploy-stg":
+                            env.BRANCH_NAME = "stg"
+                            weburl = "192.168.19.49"
+                            composefile ="./dockerScript/stg/docker-compose.yml"                      
+                            break
+                        
+                        default:
+                            env.BRANCH_NAME = "devee"
+                            break
+                        }
+                    }
+                }
+        }
+
+           stage('Clean and package Project') {
+               steps {
+                   sh 'java -version'
+                   sh 'mvn clean'
+                   sh 'mvn package -Dmaven.test.skip=true'
+               }
+           }
+          
+            stage('Build & Push Docker image') {
+                steps{
+            echo "Start building [Build No.:${env.BUILD_NUMBER}]"
+                script{
+                def dockerfile = "./Dockerfile"
+                docker.withRegistry("http://${REGISTRY_URL}", "nexus-push") {
+                def img = docker.build("${IMAGE_NAME}:${IMAGE_TAG}", "-f ${dockerfile} .")
+                img.push("${IMAGE_TAG}")
+                }
+            }
+            echo "Removing docker image ${IMAGE_NAME}:${IMAGE_TAG}"
+            sh "docker rmi ${IMAGE_NAME}:${IMAGE_TAG}"
+                }
+            
+            } 
+            stage('update docker-compose file') {
+               steps {
+                  sh "sed -i 's/youimage/${IMAGE_TAG}/g' ${composefile}"
+               }
+           }
+            stage("deploy to server "){
+            
+                when {
+                expression { env.BRANCH_NAME != 'prod' }
+                }  
+                steps {
+                    script{
+                        
+                        withCredentials ([sshUserPrivateKey(credentialsId: 'centos-key',usernameVariable: 'myuser' ,keyFileVariable: 'identity')]) {                      
+                        remote = [:]
+                        remote.name = 'centos'
+                        remote.host = weburl
+                        remote.user = myuser
+                        remote.identityFile = identity
+                        remote.allowAnyHosts = true
+                        composefile
+                        destinate = "/home/centos/max-test/${env.BRANCH_NAME}/"
+                        
+                        sshCommand remote: remote, command: "pwd"
+                        sshPut remote: remote, from: composefile, into: destinate
+                        sshCommand remote: remote, command: "docker-compose -f ${destinate}/docker-compose.yml down && docker-compose -f ${destinate}/docker-compose.yml up -d"
+                        sshCommand remote: remote, command: "exit"
+                        
+                        
+                        }
+                          
+                    }                 
+                }
+            }
+        //    stage('Deploy Dev Environment Approval'){
+        //        steps{
+        //            input message:'Approve deployment?'
+        //        }
+        //    }
+
+        }
+}

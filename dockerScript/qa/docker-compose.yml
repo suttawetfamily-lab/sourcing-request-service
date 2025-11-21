@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+
+  ptvn-ep-soucing-reg:
+    image: registry.pantavanij.com:8444/ascendcorp/ptvn-sourcing-req-service:youimage
+    ports:
+      - 8084:8084
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: 192.168.135.150:24224
+        tag: ptvn-sourcing-req-service
+    environment: 
+      # - SPRING_PROFILES_ACTIVE=dev
+      - VAULT_HOST=192.168.19.94
+      - VAULT_PORT=8200
+      - VAULT_TOKEN=s.TIekU1goN3meTeq0OjJ0fEQG
+#    networks:
+#       Mynetwork:
+#         ipv4_address: 172.99.0.35
+    network_mode: "bridge"
+    dns:
+      - 192.168.10.10
+      - 8.8.8.8
+    dns_search: dev.pantavanij.com
+    restart: on-failure

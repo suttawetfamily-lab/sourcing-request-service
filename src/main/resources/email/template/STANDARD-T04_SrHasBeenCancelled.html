@@ -1,0 +1,156 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style>
+    body {
+      font-family: Arial, Thonburi, Tahoma;
+      font-size: 14px;
+      margin: 0;
+      color: #586575;
+      line-height: 1.45em;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div style="width:100%;background:#F7F9FA;">
+    <table width="616" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;">
+      <tbody>
+        <tr>
+          <td valign="bottom" style="padding:0 0 20px 0;">
+            <p style="margin:40px 0 0 0;">
+              <span th:utext="${logoOpn}"></span>
+            </p>
+          </td>
+          <td valign="bottom" align="right" style="padding:0 0 24px 0;">
+            <a href="tel:+6620344300" style="color:#1D508D;font-size:18px;">
+              <span th:utext="${logoPhone}"></span>
+              <span>+66-2034-4333</span>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <table bgcolor="#FFFFFF" width="616" cellspacing="0" style="border-radius:4px;overflow:hidden;">
+              <tbody>
+                <tr>
+                  <td style="padding:40px 30px 25px 30px; font-size: 18px;color: #297CBB;">
+                    Sourcing request has been cancelled.
+                  </td>
+                </tr>
+
+                <!-- ------------------------------------- en -------------------------------------------- -->
+                <tr>
+                  <td style="padding:0 30px 20px 30px;">
+                    <strong style="color: #3B444F;">
+                      Dear K. <span th:text="${fullname}"></span>,
+                    </strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:0 30px;">
+                    <p style="margin: 0 0 0 0;">
+                      The sourcing request number "<span th:text="${requestNo}"></span>" has been cancelled.
+                    </p>
+                    <p style="margin: 0 0 20px 0;">You can click on the link below to go to review the request.</p>
+                    <p style="margin: 0 0 30px 0;">
+                      <span th:utext="${loginUrl}"></span>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:0 30px 30px;">
+                    <p style="margin:0 0 10px">Thank You for Using Our Service,</p>
+                    <p style="margin:0">Pantavanij Co.,Ltd.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 0 30px 30px;">
+                    <p style="margin:0">Please do not reply to this email as this is an auto generated email.</p>
+                  </td>
+                </tr>
+              </tbody>
+
+              <!-- ------------------------------------- th -------------------------------------------- -->
+              <tbody>
+
+                <tr>
+                  <td style="padding: 30px;">
+                    <div style="height: 1px; overflow: hidden; background: #E6E8EB;"></div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:0 30px 20px 30px;">
+                    <strong style="color: #3B444F;">
+                      เรียน คุณ <span th:text="${fullname}"></span>,
+                    </strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:0 30px;">
+                    <p style="margin: 0 0 0 0;">
+                      ใบขอข้อมูลสินค้าและราคา เลขที่ "<span th:text="${requestNo}"></span>" ถูกยกเลิกเรียบร้อยแล้ว</p>
+                      <p style="margin: 0 0 20px 0;">คุณสามารถตรวจสอบข้อมูลได้จากลิงก์ด้านล้างนี้</p>
+                      <p style="margin: 0 0 30px 0;">
+                        <span th:utext="${loginUrl}"></span>
+                      </p>
+                  </td>
+                  
+                </tr>
+
+                <tr>
+                  <td style="padding:0 30px 30px;">
+                    <p style="margin:0 0 10px">ขอบคุณที่ใช้บริการของเรา</p>
+                    <p style="margin:0">บริษัท พันธวณิช จำกัด</p>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding: 0 30px 30px;">
+                    <p style="margin:0">
+                      หมายเหตุ: อีเมลฉบับนี้มาจากระบบส่งอีเมลอัตโนมัติไม่สามารถ reply เพื่อตอบกลับที่อีเมลนี้ได้
+                    </p>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2" style="padding:30px;font-size:13px;color:#7E8EA4;">
+            <p style="margin:0;">
+              Pantavanij Co.,Ltd.<br />
+              31st Floor Lumpini Tower, 1168/94 Rama IV Road, Tungmahamek, Sathorn, Bangkok, 10120<br />
+              Phone : +66-2034-4333 Fax : +66-2679-7474 (8:30 am. - 17:30 pm. / Mon - Fri)<br />
+              Email : customercare@pantavanij.com
+            </p>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td align="center" style="color:#7E8EA4;font-size:13px;border-top:1px solid #F1F4F7;padding:20px 0 30px 0;">
+            ©2020 Pantavanij.com
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</body>
+
+</html>

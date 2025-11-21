@@ -1,0 +1,33 @@
+package com.pantavanij.sourcingreq.services.enums;
+
+public enum TenantExcSourcingStatus {
+    TENANT_EXC_SOURCING_NONE(1, "NONE"),
+    TENANT_EXC_SOURCING_DRAFT(2, "DRAFT"),
+    TENANT_EXC_SOURCING_AWAITING_RESPONSE(3, "AWAITING_RESPONSE"),
+    TENANT_EXC_SOURCING_PENDING(4, "PENDING"),
+    TENANT_EXC_SOURCING_CANCELLED(5, "CANCELLED"),
+    TENANT_EXC_SOURCING_AWAITING_ACTIVE(6, "AWAITING_ACTIVE"),
+    TENANT_EXC_SOURCING_AWAITING_SHORTLIST(7, "AWAITING_SHORTLIST"),
+    TENANT_EXC_SOURCING_AWAITING_APPROVE_SHORTLIST(8, "AWAITING_APPROVE_SHORTLIST"),
+    TENANT_EXC_SOURCING_QUALIFIED_SUPPLIER(9, "QUALIFIED_SUPPLIER"),
+    TENANT_EXC_SOURCING_NO_QUALIFIED_SUPPLIER(10, "NO_QUALIFIED_SUPPLIER"),
+    TENANT_EXC_SOURCING_DELETED(11, "DELETED"),
+    TENANT_EXC_SOURCING_REJECTED(12,  "REJECTED"),
+    TENANT_EXC_SOURCING_NO_SUPPLIER_RESPONSE(13,  "NO_SUPPLIER_RESPONSE"),
+    TENANT_EXC_SOURCING_NO_SUPPLIER_SELECTED(14,  "NO_SUPPLIER_SELECTED"),;
+
+    private final Integer id;
+    private final String code;
+
+    TenantExcSourcingStatus(Integer id, String code) {
+        this.id = id;
+        this.code = code;
+    }
+
+    public Integer id() {
+        return this.id;
+    }
+    public String code() {
+        return this.code;
+    }
+}

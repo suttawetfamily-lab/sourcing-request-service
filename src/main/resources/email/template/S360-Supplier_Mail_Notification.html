@@ -1,0 +1,109 @@
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        body {
+            font-family: Arial, Thonburi, Tahoma;
+            font-size: 14px;
+            margin: 0;
+            color: #586575;
+            line-height: 1.45em;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div style="width:100%;background:#FFFFFF;">
+    <table width="616" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;">
+        <tbody>
+        <tr>
+            <td colspan="2" valign="bottom" style="padding:0 0 20px 0;">
+                <p style="margin:40px 0 0 0;">
+                    <span th:utext="${logoPtvnS360}"></span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <table bgcolor="#FFFFFF" width="616" cellspacing="0" style="border-radius:4px; border: 1px solid #dedede; overflow:hidden;">
+                    <tbody>
+                    <tr>
+                        <td style="padding:0px 30px 25px 30px; font-size: 18px;color: #297CBB;">
+                            <p style="color: #01365B; font-size: 18px; font-family: Arial; font-weight: 700; line-height: 24px; word-wrap: break-word">Matching new buyer demand with your categories.</p>
+                            <p style="height: 1px; background: #DEDEDE"></p>
+                        </td>
+                    </tr>
+
+                    <!-- ------------------------------------- en -------------------------------------------- -->
+
+                    <tr>
+                        <td style="padding:0 30px;">
+                            <p style="margin: 0 0 20px 0;">ความต้องการซื้อ (สินค้า/บริการ): <span th:text="${requestName}"></span>
+                                <br/>วันที่สร้างความต้องการซื้อ: <span th:text="${submitDateTH}"></span>
+                                <br/>ชื่อบริษัทผู้ซื้อ: <span th:text="${companyName}"></span>
+                                <br/>หมวดการขายสินค้าที่ลงทะเบียนไว้กับเรา: <span th:text="${categoryNameTH}"></span>
+                            </p>
+                            <p style="color: #434C58; font-size: 14px; font-family: Arial; font-weight: 400; line-height: 20px; word-wrap: break-word">หากท่านมีความสนใจ เสนอขายสินค้า/บริการ, เสนอข้อมูลเพิ่มเติม สามารถติดต่อไปยังผู้ซื้อดังกล่าวได้โดยตรง</p>
+                            <p style="color: #434C58; font-size: 14px; font-family: Arial; font-weight: 400; line-height: 20px; word-wrap: break-word">ขอบคุณที่คุณเข้าร่วมเป็นส่วนหนึ่งของ Supplier360<br/>The Supplier360 Team</p>
+                            <p style="width: 557px; color: #434C58; font-size: 14px; font-family: Arial; font-weight: 400; line-height: 20px; word-wrap: break-word">อีเมลฉบับนี้มาจากระบบส่งอีเมลอัตโนมัติไม่สามารถ reply เพื่อตอบกลับที่อีเมลนี้ได้</p>
+
+                        </td>
+                    </tr>
+                    </tbody>
+
+                    <!-- ------------------------------------- th -------------------------------------------- -->
+                    <tbody>
+                    <tr>
+                        <td style="padding: 30px;">
+                            <div style="height: 1px; overflow: hidden; background: #E6E8EB;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0 30px;">
+                            <p style="margin: 0 0 20px 0;">Demand Name (Product/Service): <span th:text="${requestName}"></span>
+                                <br/>Demand Created Date: <span th:text="${submitDateEN}"></span>
+                                <br/>Buyer Company Name: <span th:text="${companyName}"></span>
+                                <br/>Your Product Categories: <span th:text="${categoryNameEN}"></span>
+                            </p>
+                            <p style="color: #434C58; font-size: 14px; font-family: Arial; font-weight: 400; line-height: 20px; word-wrap: break-word">If you are interest to propose a proposal, please directly contact to the buyer.</p>
+                            <p style="color: #434C58; font-size: 14px; font-family: Arial; font-weight: 400; line-height: 20px; word-wrap: break-word">Thanks for Joining Supplier360.<br/>The Supplier360 Team</p>
+                            <p style="width: 557px; color: #434C58; font-size: 14px; font-family: Arial; font-weight: 400; line-height: 20px; word-wrap: break-word">Please do not reply to this email as this is an auto generated email.</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="padding:30px; text-align: center; font-size:13px;color:#7E8EA4;">
+                <p style="margin:0;">
+                    <b>Supplier360 System Powered by Pantavanij Co.,Ltd.</b><br />
+                    Supplier360 Contact Information<br />
+                    Phone : 02-034-4466 (8:30 am. - 18:00 pm. / Mon - Fri)<br />
+                    Email : supplier360@pantavanij.com
+                </p>
+                <p style="margin-top: 24px;">
+                    ©2024 Pantavanij.com
+                </p>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+
+</body>
+
+</html>

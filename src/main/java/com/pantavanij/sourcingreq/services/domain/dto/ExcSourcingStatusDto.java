@@ -1,0 +1,26 @@
+package com.pantavanij.sourcingreq.services.domain.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.sql.Timestamp;
+
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+public class ExcSourcingStatusDto {
+    private Integer recId;
+    private String code;
+    private String description;
+    private boolean canEdit;
+    private boolean canDelete;
+    private boolean canCancel;
+    private boolean canCopyToPR;
+    private boolean canViewHistory;
+    private boolean canAssignToMe;
+    private String createdBy;
+    private Timestamp createdDate;
+}
